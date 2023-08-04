@@ -29,7 +29,20 @@ obtained
 
 **Experiment Setup**
 
-Use the config file to set experiment preferences and locations of the code, workspace, and dataset directories. There are two config files here. config.py is usually used as a template and further config files are added with the suffix '_1', '_2' etc for different experiments. 
+Step 1:
+Use the config file to set experiment preferences and locations of the code, workspace, and dataset directories. There are two config files here. config.py is usually used as a template and further config files are added with the suffix '_1', '_2' etc for different experiments.
+
+Step 2:
+Create environment and activate it. If there are some packages that we can't find, we can delete them from the environment.yml file and create the environment first. Then, after we successfully create the environment and activate it, we download the package that we can't find before inside the enviroment. If we can't find the specific version, we just download the latest one.
+
+Step 3:
+If we meet the error "AttributeError: type object 'object' has no attribute 'dtype'", updating pandas in our daic environment might be a solution.
+
+Step 4:
+In the line 79 of utilities_main.py in utilities, change it to `model.load_state_dict(checkpoint['optimizer'], strict=False)`
+
+Step 5:
+In the line 505 of utilities_main.py in utilities, change it to `data = label_checker(data)`
 
 Updated the run.sh file if you want to run the experiment through bash (call
  `./run.sh` from terminal). The arguments required by calling main1.py
@@ -61,6 +74,8 @@ and config_1.py files:
  Without using the validation set:
  
  `python3 main1.py train --cuda --vis --position=1`
+
+ **One thing to note that: if you want to execute the command of without using the validation set, please delete the output file of using validation set first. Vice versa.
  
  Running trained models again on the validation set:
  
