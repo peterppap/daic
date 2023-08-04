@@ -39,7 +39,7 @@ Step 3:
 If we meet the error "AttributeError: type object 'object' has no attribute 'dtype'", updating pandas in our daic environment might be a solution.
 
 Step 4:
-In the line 79 of utilities_main.py in utilities, change it to `model.load_state_dict(checkpoint['optimizer'], strict=False)`
+In the line 80 of utilities_main.py in utilities, change it to `model.load_state_dict(checkpoint['optimizer'], strict=False)`
 
 Step 5:
 In the line 505 of utilities_main.py in utilities, change it to `data = label_checker(data)`
